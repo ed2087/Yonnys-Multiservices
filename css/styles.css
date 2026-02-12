@@ -118,8 +118,9 @@ a {
    ============================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  height: 75vh;
+  min-height: 500px;
+  max-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,8 +194,8 @@ a {
 }
 
 .logo {
-  max-width: 300px;
-  margin: 0 auto 30px;
+  max-width: 220px;
+  margin: 0 auto 20px;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
   animation: logoFloat 3s ease-in-out infinite;
 }
@@ -210,15 +211,15 @@ a {
 
 @media (min-width: 768px) {
   .logo {
-    max-width: 450px;
-    margin-bottom: 40px;
+    max-width: 300px;
+    margin-bottom: 24px;
   }
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   animation: slideInFromLeft 0.8s ease-out 0.2s both;
 }
@@ -236,14 +237,14 @@ a {
 
 @media (min-width: 768px) {
   .hero h1 {
-    font-size: 64px;
-    margin-bottom: 20px;
+    font-size: 42px;
+    margin-bottom: 16px;
   }
 }
 
 .hero-subtitle {
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 16px;
+  margin-bottom: 8px;
   font-weight: 600;
   animation: slideInFromRight 0.8s ease-out 0.4s both;
 }
@@ -261,22 +262,22 @@ a {
 
 @media (min-width: 768px) {
   .hero-subtitle {
-    font-size: 28px;
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 12px;
   }
 }
 
 .hero-tagline {
-  font-size: 16px;
-  margin-bottom: 40px;
+  font-size: 14px;
+  margin-bottom: 28px;
   opacity: 0.95;
   animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 @media (min-width: 768px) {
   .hero-tagline {
-    font-size: 22px;
-    margin-bottom: 50px;
+    font-size: 18px;
+    margin-bottom: 36px;
   }
 }
 
@@ -286,13 +287,13 @@ a {
   gap: 12px;
   background: var(--whatsapp-green);
   color: var(--bg-white);
-  padding: 16px 40px;
+  padding: 14px 36px;
   border-radius: var(--radius-lg);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
   transition: all var(--transition);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
   animation: fadeInUp 0.8s ease-out 0.8s both;
@@ -326,7 +327,7 @@ a {
 }
 
 .btn-whatsapp i {
-  font-size: 24px;
+  font-size: 20px;
   animation: spinPulse 2s ease-in-out infinite;
 }
 
@@ -341,22 +342,26 @@ a {
 
 @media (min-width: 768px) {
   .btn-whatsapp {
+    font-size: 18px;
+    padding: 16px 48px;
+  }
+  
+  .btn-whatsapp i {
     font-size: 22px;
-    padding: 20px 60px;
   }
 }
 
 .hero-phone {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   animation: fadeInUp 0.8s ease-out 1s both;
 }
 
 @media (min-width: 768px) {
   .hero-phone {
-    font-size: 28px;
+    font-size: 22px;
   }
 }
 
@@ -470,6 +475,8 @@ a {
   transition: all var(--transition-slow);
   position: relative;
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card::before {
@@ -483,6 +490,7 @@ a {
   opacity: 0;
   transition: opacity var(--transition);
   z-index: 0;
+  pointer-events: none;
 }
 
 .service-card:hover::before {
@@ -497,9 +505,10 @@ a {
 
 .service-image {
   width: 100%;
-  height: 220px;
+  height: 200px;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
 
 .service-image::after {
@@ -530,16 +539,19 @@ a {
 }
 
 .service-content {
-  padding: 28px;
+  padding: 24px;
   text-align: center;
   position: relative;
   z-index: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-content i {
-  font-size: 56px;
+  font-size: 48px;
   color: var(--primary-gold);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   transition: all var(--transition);
   display: inline-block;
 }
@@ -550,9 +562,9 @@ a {
 }
 
 .service-content h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--primary-navy);
   transition: var(--transition);
 }
@@ -561,19 +573,58 @@ a {
   color: var(--primary-gold);
 }
 
-.service-content p {
-  font-size: 16px;
+.service-content > p {
+  font-size: 15px;
   color: var(--text-medium);
-  line-height: 1.5;
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 @media (min-width: 768px) {
   .service-content h3 {
-    font-size: 24px;
+    font-size: 22px;
   }
   
-  .service-content p {
-    font-size: 17px;
+  .service-content > p {
+    font-size: 16px;
+  }
+}
+
+/* Service List Styling */
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.service-list li {
+  font-size: 14px;
+  color: var(--text-dark);
+  padding: 5px 0;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.service-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--whatsapp-green);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .service-list li {
+    font-size: 14px;
+    padding: 6px 0;
+    padding-left: 24px;
+  }
+  
+  .service-list li::before {
+    font-size: 16px;
   }
 }
 
@@ -713,7 +764,7 @@ a {
 
 @media (min-width: 768px) {
   .area-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 24px;
   }
 }
@@ -763,7 +814,7 @@ a {
 
 @media (min-width: 768px) {
   .area-item {
-    font-size: 18px;
+    font-size: 17px;
     padding: 18px;
   }
   
